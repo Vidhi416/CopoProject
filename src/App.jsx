@@ -5,6 +5,7 @@ import AppBar from './components/AppBar';
 import Home from './pages/Home';
 import Course1 from './pages/Course1';
 import Course2 from './pages/Course2';
+import Copomap from './pages/Copomap';
 
 export default function App() {
   const [drawerOpen, setDrawerOpen] = useState(true);
@@ -20,6 +21,7 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/course1" element={<Course1 />} />
               <Route path="/course2" element={<Course2 />} />
+              <Route path="/copomap" element={<Copomap />} />
             </Routes>
           </main>
         </div>
