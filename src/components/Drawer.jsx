@@ -17,15 +17,21 @@ export default function Drawer({ isOpen }) {
             </Link>
           </li>
           <li className="hover:bg-gray-700">
-            <Link to="/course1" className="flex items-center p-4 w-full">
+            <Link to="/ViewCAM" className="flex items-center p-4 w-full">
               <span>📚</span>
-              {isOpen && <span className="ml-2">Course 1</span>}
+              {isOpen && <span className="ml-2">View Course Articulation Matrix</span>}
             </Link>
           </li>
           <li className="hover:bg-gray-700">
-            <Link to="/course2" className="flex items-center p-4 w-full">
-              <span>📚</span>
-              {isOpen && <span className="ml-2">Course 2</span>}
+            <Link to="/UpRes" className="flex items-center p-4 w-full">
+              <span>📤</span>
+              {isOpen && <span className="ml-2">Upload Results</span>}
+            </Link>
+          </li>
+          <li className="hover:bg-gray-700">
+            <Link to="/ViewReps" className="flex items-center p-4 w-full">
+              <span>🔍</span>
+              {isOpen && <span className="ml-2">View Reports</span>}
             </Link>
           </li>
         </ul>
