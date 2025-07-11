@@ -18,11 +18,41 @@ export default function ViewCAM() {
     }
   ];
 
-  const handleViewClick = (courseCode) => {
-    // Navigate to course details or perform view action
-    console.log(`Viewing course ${courseCode}`);
-    // Example: navigate(`/course/${courseCode}`);
+  const handleViewClick = (course) => {
+  const mockMatrixData = [
+    ['CO1', 1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 0, 1, 2, 0, 0,1],
+    ['CO2', 0, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 1, 1, 0, 0,2],
+    ['CO3', 2, 2, 1, 1, 0, 0, 1, 1, 2, 1, 0, 0, 1, 1, 0,1],
+    ['CO4', 1, 0, 2, 2, 1, 0, 1, 0, 2, 1, 0, 0, 0, 1, 0,0],
+    ['CO5', 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 2, 1, 0, 0,1],
+    ['CO6', 2, 0, 1, 1, 0, 0, 1, 2, 1, 0, 1, 0, 0, 1, 0,3]
+  ];
+  const coDescriptions = [
+    "Understand fundamentals of deep learning",
+    "Apply CNNs in image classification tasks",
+    "Build and train RNN-based models",
+    "Evaluate performance of neural networks",
+    "Explore advanced topics like GANs",
+    "Deploy deep learning models in production"
+  ];
+
+  const courseDetails = {
+    courseName: course.name,
+    courseCode: course.code,
+    semester: course.semester,
+    programme: 'B.Tech',  // or fetch from backend
+    year: '2025–26'       // or calculate dynamically
   };
+
+  navigate('/Copomap', {
+    state: {
+      matrixData: mockMatrixData,
+      coDescriptions,
+      courseDetails
+    }
+  });
+};
+
 
   return (
     <div className="p-6">
@@ -41,7 +71,7 @@ export default function ViewCAM() {
               </div>
               <div className="mt-4 flex justify-end">
                 <button 
-                  onClick={() => handleViewClick(course.code)}
+                  onClick={() => handleViewClick(course)}
                   className="bg-yellow-500 hover:bg-yellow-700 text-white px-3 py-1 rounded text-sm"
                 >
                   View

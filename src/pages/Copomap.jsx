@@ -4,6 +4,8 @@ import {
   TableHead, TableRow, Paper
 } from '@mui/material';
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 const CO_ROWS = ['CO1', 'CO2', 'CO3', 'CO4', 'CO5', 'CO6'];
 const PO_COLUMNS = Array.from({ length: 12 }, (_, i) => `PO${i + 1}`);
 const PSO_COLUMNS = Array.from({ length: 4 }, (_, i) => `PSO${i + 1}`);
@@ -12,7 +14,8 @@ const PSO_COLUMNS = Array.from({ length: 4 }, (_, i) => `PSO${i + 1}`);
 
 export default function Copomap() {
     const { state } = useLocation();
-  const { matrixData, courseDetails } = state || {};
+    const navigate = useNavigate();
+  const { matrixData, courseDetails,coDescriptions } = state || {};
   return (
     <>
     <TableContainer component={Paper} sx={{ mb: 4 }}>
@@ -41,6 +44,7 @@ export default function Copomap() {
         <TableHead>
           <TableRow>
             <TableCell><strong>CO</strong></TableCell>
+            <TableCell><strong>CO Description</strong></TableCell>
             {PO_COLUMNS.map((po) => (
               <TableCell align="center" key={po}>{po}</TableCell>
             ))}
@@ -52,8 +56,10 @@ export default function Copomap() {
         <TableBody>
   {matrixData.map((row, rowIndex) => (
     <TableRow key={rowIndex}>
-      {row.map((cell, colIndex) => (
-        <TableCell align={colIndex === 0 ? "left" : "center"} key={colIndex}>
+      <TableCell align="left">{row[0]}</TableCell>
+      <TableCell align="left">{coDescriptions?.[rowIndex] || ''}</TableCell>
+      {row.slice(1).map((cell, colIndex) => (
+        <TableCell align="center" key={colIndex}>
           {cell}
         </TableCell>
       ))}
@@ -63,6 +69,14 @@ export default function Copomap() {
 
       </Table>
     </TableContainer>
+    <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '20px' }}>
+  <button
+    onClick={() => navigate('/ViewCAM')}
+    className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded shadow-md"
+  >
+    Close
+  </button>
+</div>
 </>
   );
 }

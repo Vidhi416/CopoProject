@@ -26,7 +26,7 @@ export default function UpRes() {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Uplaoad Results</h1> 
+      <h1 className="text-2xl font-bold mb-6">Upload Results</h1> 
 
       <div className="mx-32 my-16">
         <h2 className="text-xl font-semibold mb-12">List of Courses which you are coordinating</h2>

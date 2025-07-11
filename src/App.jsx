@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Drawer from './components/Drawer';
 import AppBar from './components/AppBar';
 import Home from './pages/Home';
-import Course1 from './pages/Course1';
-import Course2 from './pages/Course2';
+
 import Copomap from './pages/Copomap';
 import ViewCAM from './pages/ViewCAM';
 import UpRes from './pages/UpRes';
@@ -25,8 +24,7 @@ export default function App() {
               <Route path="/ViewCAM" element={<ViewCAM />} />
               <Route path="/UpRes" element={<UpRes />} />
               <Route path="/ViewReps" element={<ViewReps />} />
-              <Route path="/course1" element={<Course1 />} />
-              <Route path="/course2" element={<Course2 />} />
+              
               <Route path="/copomap" element={<Copomap />} />
             </Routes>
           </main>
