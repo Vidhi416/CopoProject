@@ -18,11 +18,10 @@ export default function UpRes() {
     }
   ];
 
-  const handleViewClick = (courseCode) => {
-    // Navigate to course details or perform upload action
-    console.log(`Uploading results ${courseCode}`);
-    // Example: navigate(`/course/${courseCode}`);
-  };
+  const handleViewClick = (course) => {
+  navigate('/UploadPage', { state: course });
+};
+
 
   return (
     <div className="p-6">
@@ -41,7 +40,7 @@ export default function UpRes() {
               </div>
               <div className="mt-4 flex justify-end">
                 <button 
-                  onClick={() => handleViewClick(course.code)}
+                  onClick={() => handleViewClick(course)}
                   className="bg-rose-400 hover:bg-pink-600 text-white px-3 py-1 rounded text-sm"
                 >
                   Upload
