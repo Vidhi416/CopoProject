@@ -8,6 +8,9 @@ import Copomap from './pages/Copomap';
 import ViewCAM from './pages/ViewCAM';
 import UpRes from './pages/UpRes';
 import ViewReps from './pages/ViewReps';
+import UploadPage from './pages/UploadPage';
+
+
 
 export default function App() {
   const [drawerOpen, setDrawerOpen] = useState(true);
@@ -26,6 +29,7 @@ export default function App() {
               <Route path="/ViewReps" element={<ViewReps />} />
               
               <Route path="/copomap" element={<Copomap />} />
+              <Route path="/UploadPage" element={<UploadPage />} />
             </Routes>
           </main>
         </div>
